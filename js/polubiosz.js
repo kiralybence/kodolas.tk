@@ -1,23 +1,24 @@
-pkod{
-	var ekbetuk = [a, á, b, c, d, e, é, f, g, h, i, í, j, k, l, m, n, o, ó, ö, ő, p, q, r, s, t, u, ú, ü, ű, v, w, x, y, z];
-	var ekszamok = [11,12,13,14,15,16,17,
-					21,22,23,24,25,26,27,
-					31,32,33,34,35,36,37,
-					41,42,43,44,45,46,47,
-					51,52,53,54,55,56,57];
-	var bekert = [];
+function pkod(){
+	var betuk = [['a','\xE1','b','c','d','e','\xE9'],['f','g','h','i','\xED','j','k'],['l','m','n','o','\xF3','\xF6','\u0151'],['p','q','r','s','t','u','\xFA'],['\xFC','\u0171','v','w','x','y','z']];
+	var bekert = document.pk.pszoveg.value.toLowerCase();
 	var kodolt = [];
-	bekert = document.pk.pszoveg.value.toLowerCase();
 	
-	for(i=0;i<bekert.length;i++){
-		if(ekbetuk[i]=bekert[i]){
-			kodolt[i]=ekszamok[i];
+	for(z=0;z<bekert.length;z++){
+		for(i=0;i<5;i++){
+			for(y=0;y<7;y++){
+				if(bekert.charAt(z)==betuk[i][y]){
+					kodolt[z]=""+(i+1)+(y+1);
+				}
+			}
 		}
 	}
-
-	document.pk.peredmeny.value = kodolt.toUpperCase();	
+	
+	document.pk.peredmeny.value = kodolt;
 }
 
-pdekod{
+function pdekod(){
+	var betuk = [['a','\xE1','b','c','d','e','\xE9'],['f','g','h','i','\xED','j','k'],['l','m','n','o','\xF3','\xF6','\u0151'],['p','q','r','s','t','u','\xFA'],['\xFC','\u0171','v','w','x','y','z']];
+	var bekert = document.pk.pszoveg.value;
 	
+	document.pk.peredmeny.value = betuk[bekert.charAt(0)-1][bekert.charAt(1)-1];
 }
