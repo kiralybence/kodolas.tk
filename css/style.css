@@ -39,6 +39,12 @@
 	border-radius: 0px 0px 5px 5px;
 }
 
+.tab-content input{
+	border: 0.5px solid black;
+	padding: 2px;
+	border-radius: 2px;
+}
+
 .diszkretszinu{
 	color: lightgrey;
 }

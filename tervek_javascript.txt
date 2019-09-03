@@ -1,0 +1,2 @@
+- A "betuk" tömbbõl kivenni a 0-t
+- JavaScript letisztítása
