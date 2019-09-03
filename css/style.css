@@ -3,16 +3,16 @@
 .metodus-tart{
 	width: 100%;
 	height: 100%;
-	margin: 10px;
 	background-color: lightgrey;
 	border: 1px solid black;
 	padding: 5px;
 	text-align: center;
 	overflow: hidden;
+	margin-bottom: 5px;
 }
 
 .mezo{
-	width: 100%;
+	width: 80%;
 }
 
 .lablec{
@@ -20,19 +20,42 @@
 	font-size: x-small;
 }
 
+.metodus-valaszto a{
+	color: black;
+	border: none;
+	margin: 0!important;
+	border: 0!important;
+	padding: 10px!important;
+}
+
+.metodus-opcio{
+	width: 50%;
+}
+
+.tab-content{
+	height: calc(100% - 97px);/*Bence bazeg ezt nem tudom miért, de működikk*//*most már értjük, vmiért hozzáadja ennek a méretéhez a felette levő elemek méretét is*/
+	background-color: white;
+	padding: 5px;
+	border-radius: 0px 0px 5px 5px;
+}
+
 .diszkretszinu{
 	color: lightgrey;
 }
 /*Alábbi kell, hogy a colok egyforma magasak legyenek, ez az egyetlen normális reszponzív megoldás*/
 .row {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display:         flex;
-  flex-wrap: wrap;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display:         flex;
+	flex-wrap: wrap;
 }
 .row > [class*='col-'] {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
-/*col egyforma magasság vége*/			
+/*col egyforma magasság vége*/
+
+.cim{
+	text-align: center;
+}

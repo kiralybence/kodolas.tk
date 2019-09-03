@@ -10,106 +10,198 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"><!--mobilok miatt-->
     <title>Kódolás</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css"><!--azért a min, mert gyorsabban letölt/betölt-->
-	<link rel="stylesheet" href="css/font-awesome.min.css"><!--jó kis ikonkészlet-->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-    <script language="javascript" type="text/javascript" src="js/polubiosz.js"></script>
-    <script language="javascript" type="text/javascript" src="js/fesu.js"></script>
-    <script language="javascript" type="text/javascript" src="js/szamkod.js"></script>
-    <script language="javascript" type="text/javascript" src="js/caesar.js"></script>
-    <script language="javascript" type="text/javascript" src="js/vigenere.js"></script>
+    <script type="text/javascript" src="js/polubiosz.js"></script>
+    <script type="text/javascript" src="js/fesu.js"></script>
+    <script type="text/javascript" src="js/szamkod.js"></script>
+    <script type="text/javascript" src="js/caesar.js"></script>
+    <script type="text/javascript" src="js/vigenere.js"></script>
+    <script type="text/javascript" src="js/nightmode.js"></script>
+	<script src="js/jquery.min.js"></script><!--Kell a dynamic pillshez-->
+	<script src="js/bootstrap.min.js"></script><!--Kell a dynamic pillshez-->
 </head>
  
 <body>
     <div class="container-fluid">
 		<div class="row">
+			<div class="col-xs-12 cim">
+				<h1>Kódolás.tk</h1>
+				<div><input type="checkbox" id="kapcsolo" onclick="nightmode()">&nbsp;Night Mode&nbsp;<span id="allapot">OFF</span></div>
+			</div>
+		</div>
+		<div class="row">
 			<div class="col-lg-1 visible-lg"></div><!--helykitöltésnek-->
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-2 metodus">
 				<div class="metodus-tart">
 					<h3>Polübiosz</h3>
-					<form name="pk">
-						Szöveg:<br>
-						<input type="text" name="pszoveg" class="mezo"><br><br>
-						Eredmény:<br>
-						<input type="text" name="peredmeny" readonly="readonly" class="mezo"><br><br>
-					   
-						<input type="button" value="Kódolás" onClick="pkod()">
-						<input type="button" value="Dekódolás" onClick="pdekod()">
-					</form>
+					<ul class="nav nav-tabs metodus-valaszto">
+						<li class="active metodus-opcio"><a data-toggle="tab" href="#pkod">Kódolás</a></li>
+						<li class="metodus-opcio"><a data-toggle="tab" href="#pdkod">Dekódolás</a></li>
+					</ul>
+					<div class="tab-content">
+						<div id="pkod" class="tab-pane fade in active">
+							<form name="pk">
+								Szöveg:<br>
+								<input type="text" name="psz" class="mezo"><br><br>
+								Kódolt szöveg:<br>
+								<input type="text" name="pk" readonly="readonly" class="mezo"><br><br>
+								<input type="button" value="Kódolás" onClick="pkd()">
+							</form>
+						</div>
+						<div id="pdkod" class="tab-pane fade">
+							<form name="pdk">
+								Kódolt szöveg:<br>
+								<input type="text" name="pdksz" class="mezo"><br><br>
+								Szöveg:<br>
+								<input type="text" name="pdke" readonly="readonly" class="mezo"><br><br>
+								<input type="button" value="Dekódolás" onClick="pde()">
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-2 metodus">
 				<div class="metodus-tart">
-					<h3>Fésűs módszer</h3>
-					<form name="fk">
-						Szöveg:<br>
-						<input type="text" name="fszoveg" class="mezo"><br><br>
-						Sor:<br>
-						<input type="number" name="fsor" class="mezo" min="2" max="100" value="2"><br><br>
-						Eredmény:<br>
-						<input type="text" name="feredmeny" readonly="readonly" class="mezo"><br><br>
-					   
-						<input type="button" value="Kódolás" onClick="fkod()">
-						<input type="button" value="Dekódolás" onClick="fde()">
-					</form>
+					<h3>Fésűs</h3>
+					<ul class="nav nav-tabs metodus-valaszto">
+						<li class="active metodus-opcio"><a data-toggle="tab" href="#fkod">Kódolás</a></li>
+						<li class="metodus-opcio"><a data-toggle="tab" href="#fdkod">Dekódolás</a></li>
+					</ul>
+					<div class="tab-content">
+						<div id="fkod" class="tab-pane fade in active">		
+							<form name="fk">
+								Szöveg:<br>
+								<input type="text" name="fsz" class="mezo"><br><br>
+								Sor:<br>
+								<input type="number" name="fs" class="mezo" min="2" max="100" value="2"><br><br>
+								Kódolt szöveg:<br>
+								<input type="text" name="fe" readonly="readonly" class="mezo"><br><br>
+								<input type="button" value="Kódolás" onClick="fkod()">
+							</form>
+						</div>
+						<div id="fdkod" class="tab-pane fade">		
+							<form name="fdk">
+								Kódolt szöveg:<br>
+								<input type="text" name="fszoveg" class="mezo"><br><br>
+								Sor:<br>
+								<input type="number" name="fsor" class="mezo" min="2" max="100" value="2"><br><br>
+								Szöveg:<br>
+								<input type="text" name="feredmeny" readonly="readonly" class="mezo"><br><br>
+								<input type="button" value="Dekódolás" onClick="fde()">
+							</form>
+						</div>	
+					</div>		
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-2 metodus">
 				<div class="metodus-tart">
 					<h3>Számkódolás</h3>
-					<form name="szk">
-						Szöveg:<br>
-						<input type="text" name="szkszoveg" class="mezo"><br><br>
-						Kulcs:<br>
-						<input type="text" name="szkkulcs" class="mezo"><br><br>
-						Eredmény:<br>
-						<input type="text" name="szkeredmeny" readonly="readonly" class="mezo"><br><br>
-					   
-						<input type="button" value="Kódolás" onClick="szkkod()">
-						<input type="button" value="Dekódolás" onClick="szkde()">
-						<p style="font-size: 8pt; font-family: Arial;">(szóközök és ékezetek nélkül)</p>
-					</form>
+					<ul class="nav nav-tabs metodus-valaszto">
+						<li class="active metodus-opcio"><a data-toggle="tab" href="#szkod">Kódolás</a></li>
+						<li class="metodus-opcio"><a data-toggle="tab" href="#szdkod">Dekódolás</a></li>
+					</ul>
+					<div class="tab-content">
+						<div id="szkod" class="tab-pane fade in active">	
+							<form name="szk">
+								Szöveg:<br>
+								<input type="text" name="szkszoveg" class="mezo"><br><br>
+								Kulcs:<br>
+								<input type="text" name="szkkulcs" class="mezo"><br><br>
+								Kódolt szöveg:<br>
+								<input type="text" name="szkeredmeny" readonly="readonly" class="mezo"><br><br>
+							   
+								<input type="button" value="Kódolás" onClick="szkkod()">
+							</form>
+						</div>
+						<div id="szdkod" class="tab-pane fade">	
+							<form name="szk">
+								Kódolt szöveg:<br>
+								<input type="text" name="szkszoveg" class="mezo"><br><br>
+								Kulcs:<br>
+								<input type="text" name="szkkulcs" class="mezo"><br><br>
+								Szöveg:<br>
+								<input type="text" name="szkeredmeny" readonly="readonly" class="mezo"><br><br>
+							   
+								<input type="button" value="Dekódolás" onClick="szkde()">
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-2 metodus">
 				<div class="metodus-tart">
 					<h3>Caesar</h3>
-					<form name="csr">
-						Szöveg:<br>
-						<input type="text" name="csrszoveg" class="mezo"><br><br>
-						Eltolás:<br>
-						<input type="number" name="csrkulcs" class="mezo" min="1" max="25" value="1"><br><br>
-						Eredmény:<br>
-						<input type="text" name="csreredmeny" readonly="readonly" class="mezo"><br><br>
-						<input type="button" value="Kódolás" onClick="csrkod()">
-						<input type="button" value="Dekódolás" onClick="csrde()">
-						<p style="font-size: 8pt; font-family: Arial;">(szóközök és ékezetek nélkül)</p>
-					</form>
+					<ul class="nav nav-tabs metodus-valaszto">
+						<li class="active metodus-opcio"><a data-toggle="tab" href="#ckod">Kódolás</a></li>
+						<li class="metodus-opcio"><a data-toggle="tab" href="#cdkod">Dekódolás</a></li>
+					</ul>
+					<div class="tab-content">
+						<div id="ckod" class="tab-pane fade in active">	
+							<form name="csr">
+								Szöveg:<br>
+								<input type="text" name="csrszoveg" class="mezo"><br><br>
+								Eltolás:<br>
+								<input type="number" name="csrkulcs" class="mezo" min="1" max="25" value="1"><br><br>
+								Kódolt szöveg:<br>
+								<input type="text" name="csreredmeny" readonly="readonly" class="mezo"><br><br>
+								<input type="button" value="Kódolás" onClick="csrkod()">
+							</form>
+						</div>
+						<div id="cdkod" class="tab-pane fade">	
+							<form name="csr">
+								Kódolt szöveg:<br>
+								<input type="text" name="csrszoveg" class="mezo"><br><br>
+								Eltolás:<br>
+								<input type="number" name="csrkulcs" class="mezo" min="1" max="25" value="1"><br><br>
+								Szöveg:<br>
+								<input type="text" name="csreredmeny" readonly="readonly" class="mezo"><br><br>
+								<input type="button" value="Dekódolás" onClick="csrde()">
+							</form>
+						</div>
+					</div>	
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-2 metodus">
 				<div class="metodus-tart">
 					<h3>Vigenere</h3>
-					<form name="vgnr">
-						Szöveg:<br>
-						<input type="text" name="vgnrszoveg" class="mezo"><br><br>
-						Kulcs:<br>
-						<input type="text" name="vgnrkulcs" class="mezo"><br><br>
-						Eredmény:<br>
-						<input type="text" name="vgnreredmeny" readonly="readonly" class="mezo"><br><br>
-						<input type="button" value="Kódolás" onClick="vgnrkod()">
-						<input type="button" value="Dekódolás" onClick="vgnrde()">
-						<p style="font-size: 8pt; font-family: Arial;">(szóközök és ékezetek nélkül)</p>
-					</form>
+					<ul class="nav nav-tabs metodus-valaszto">
+						<li class="active metodus-opcio"><a data-toggle="tab" href="#vkod">Kódolás</a></li>
+						<li class="metodus-opcio"><a data-toggle="tab" href="#vdkod">Dekódolás</a></li>
+					</ul>
+					<div class="tab-content">
+						<div id="vkod" class="tab-pane fade in active">	
+							<form name="vgnr">
+								Szöveg:<br>
+								<input type="text" name="vgnrszoveg" class="mezo"><br><br>
+								Kulcs:<br>
+								<input type="text" name="vgnrkulcs" class="mezo"><br><br>
+								Kódolt szöveg:<br>
+								<input type="text" name="vgnreredmeny" readonly="readonly" class="mezo"><br><br>
+								<input type="button" value="Kódolás" onClick="vgnrkod()">
+							</form>
+						</div>
+						<div id="vdkod" class="tab-pane fade">	
+							<form name="vgnr">
+								Kódolt szöveg:<br>
+								<input type="text" name="vgnrszoveg" class="mezo"><br><br>
+								Kulcs:<br>
+								<input type="text" name="vgnrkulcs" class="mezo"><br><br>
+								Szöveg:<br>
+								<input type="text" name="vgnreredmeny" readonly="readonly" class="mezo"><br><br>
+								<input type="button" value="Dekódolás" onClick="vgnrde()">
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="col-lg-1 visible-lg"></div><!--helykitöltésnek-->
 		</div>
 		<div class="row">
 			<div class="col-xs-12 lablec">
-				Minden jog fenntartva.<br>&copy; 2017<br>Orsós Lívia, Király Bence, Kapitány Rudolf<br><p class="diszkretszinu">Inspired by Sarlós Tamás Zsolt</p>
+				Minden jog fenntartva.<br>&copy; 2017<br>Orsós Lívia, Király Bence, Kapitány Rudolf<br><p class="diszkretszinu">Inspired by Duncan MacLeod the Highlander</p>
 			</div>
 		</div>
     </div>
 </body>
- 
+
 </html>
