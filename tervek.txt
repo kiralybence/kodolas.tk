@@ -1,2 +1,0 @@
-sz02 kimaradt a számkódolás dekódnál
-a polübiosz és a szdekodnál meg kell csinálni a splitet

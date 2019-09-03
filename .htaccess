@@ -1,2 +1,39 @@
-# Do not remove this line or mod_rewrite rules and search engine friendly URLs will stop working
-RewriteBase /
+# Atiranyitas www-re a nem www-rol
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+
+# GZIP tomorites
+<ifmodule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript
+</ifmodule>
+
+
+# W3TC Browser Cache
+<IfModule mod_deflate.c>
+    <IfModule mod_headers.c>
+        Header append Vary User-Agent env=!dont-vary
+    </IfModule>
+        AddOutputFilterByType DEFLATE text/css text/x-component application/x-javascript application/javascript text/javascript text/x-js text/html text/richtext image/svg+xml text/plain text/xsd text/xsl text/xml image/x-icon application/json
+    <IfModule mod_mime.c>
+        # DEFLATE by extension
+        AddOutputFilter DEFLATE js css htm html xml
+    </IfModule>
+</IfModule>
+
+# Gyorsitotarazas
+<ifModule mod_headers.c>
+Header set Connection keep-alive
+# 1 hetes
+<filesMatch ".(jpg|jpeg|png|gif|swf|ico|pdf|flv)$">
+	Header set Cache-Control "max-age=604800, public"
+</filesMatch>
+# 4 napos
+<filesMatch ".(xml|txt|css|js)$">
+	Header set Cache-Control "max-age=345600, proxy-revalidate"
+</filesMatch>
+</ifModule>
+
+#404 html
+ErrorDocument 404 /404.html

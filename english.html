@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 
-<!-- Minden jog fenntartva. ©2017 Orsós Lívia, Király Bence, Kapitány Rudolf -->
+<!-- All rights reserved. ©2017 Lívia Orsós, Bence Király, Rudolf Kapitány -->
 
-<html lang="hu"> <!-- magyar lokalizáció -->
+<html lang="en"> <!-- angol lokalizáció -->
 
 <head>
 	<meta charset="utf-8"> <!-- ami nem utf-8, az nem is jó -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- mobilok miatt -->
-	<meta name="description" content="Polübiosz, fésűs, szám, Caesar, Vigenere kódolás és dekódolás. Alapszintű kriptográfiai módszerek.">
+	<meta name="description" content="Polybius, columnar transposition, letter number, Caesar, Vigenere encryption and decryption. Basic cryptographic methods.">
 	<!-- FB Open Graph-->
 	<meta property="og:title" content="Kódolás.tk">
-	<meta property="og:description" content="Polübiosz, fésűs, szám, Caesar, Vigenere kódolás és dekódolás. Alapszintű kriptográfiai módszerek.">
+	<meta property="og:description" content="Polybius, columnar transposition, letter number, Caesar, Vigenere encryption and decryption. Basic cryptographic methods.">
 	<meta property="og:type" content="website">
 	<meta property="og:image" content="img/favicon.png">
 	<meta property="og:url" content="http://www.kodolas.tk/">
@@ -19,8 +19,8 @@
 	<meta name="dcterms.relation" content="http://www.kodolas.tk">
 	<meta name="dcterms.format" content="text/html">
 	<meta name="DC.type" content="website">
-	<meta name="DC.description" content="Polübiosz, fésűs, szám, Caesar, Vigenere kódolás és dekódolás. Alapszintű kriptográfiai módszerek.">
-	<meta name="DC.language" content="hu">
+	<meta name="DC.description" content="Polybius, columnar transposition, letter number, Caesar, Vigenere encryption and decryption. Basic cryptographic methods.">
+	<meta name="DC.language" content="en">
 	<title>Kódolás.tk</title>
 	<link rel="icon" type="image/x-icon" href="img/favicon.png"> <!-- az év faviconja -->
 	<link rel="stylesheet" href="css/bootstrap.min.css"> <!-- azért a min, mert gyorsabban letölt/betölt -->
@@ -64,30 +64,30 @@
 			<!-- Polübiosz -->
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-2 metodus">
 				<div class="metodus-tart">
-					<h2>Polübiosz</h2>
+					<h2>Polybius</h2>
 					<ul class="nav nav-tabs metodus-valaszto">
-						<li class="active metodus-opcio"><a data-toggle="tab" href="#polubiosz_kod_div">Kódolás</a></li>
-						<li class="metodus-opcio"><a data-toggle="tab" href="#polubiosz_dekod_div">Dekódolás</a></li>
+						<li class="active metodus-opcio"><a data-toggle="tab" href="#polubiosz_kod_div">Encryption</a></li>
+						<li class="metodus-opcio"><a data-toggle="tab" href="#polubiosz_dekod_div">Decryption</a></li>
 					</ul>
 					<div class="tab-content">
 						<!-- Polübiosz: Kódolás -->
 						<div id="polubiosz_kod_div" class="tab-pane fade in active">
 							<form name="polubiosz_kod_form">
-								Szöveg:<br>
-								<input type="text" name="polubiosz_kod_be" class="mezo" placeholder="pl.: teszt szöveg"><br><br>
-								Kódolt szöveg:<br>
+								Plaintext:<br>
+								<input type="text" name="polubiosz_kod_be" class="mezo" placeholder="e.g.: test text"><br><br>
+								Ciphertext:<br>
 								<input type="text" name="polubiosz_kod_ki" readonly="readonly" class="mezo"><br><br>
-								<input type="button" value="Kódolás" onClick="polubiosz_kod()">
+								<input type="button" value="Encrypt" onClick="polubiosz_kod()">
 							</form>
 						</div>
 						<!-- Polübiosz: Dekódolás -->
 						<div id="polubiosz_dekod_div" class="tab-pane fade">
 							<form name="polubiosz_dekod_form">
-								Kódolt szöveg:<br>
-								<input type="text" name="polubiosz_dekod_be" class="mezo" placeholder="pl.: 45-16-44-57-45-44-57-36-53-16-22"><br><br>
-								Szöveg:<br>
+								Ciphertext:<br>
+								<input type="text" name="polubiosz_dekod_be" class="mezo" placeholder="e.g.: 45-16-44-45-45-16-55-45"><br><br>
+								Plaintext:<br>
 								<input type="text" name="polubiosz_dekod_ki" readonly="readonly" class="mezo"><br><br>
-								<input type="button" value="Dekódolás" onClick="polubiosz_dekod()">
+								<input type="button" value="Decrypt" onClick="polubiosz_dekod()">
 							</form>
 						</div>
 					</div>
@@ -97,34 +97,34 @@
 			<!-- Fésűs -->
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-2 metodus">
 				<div class="metodus-tart">
-					<h2>Fésűs</h2>
+					<h2>Columnar</h2>
 					<ul class="nav nav-tabs metodus-valaszto">
-						<li class="active metodus-opcio"><a data-toggle="tab" href="#fesu_kod_div">Kódolás</a></li>
-						<li class="metodus-opcio"><a data-toggle="tab" href="#fesu_dekod_div">Dekódolás</a></li>
+						<li class="active metodus-opcio"><a data-toggle="tab" href="#fesu_kod_div">Encryption</a></li>
+						<li class="metodus-opcio"><a data-toggle="tab" href="#fesu_dekod_div">Decryption</a></li>
 					</ul>
 					<div class="tab-content">
 						<!-- Fésűs: Kódolás -->
 						<div id="fesu_kod_div" class="tab-pane fade in active">
 							<form name="fesu_kod_form">
-								Szöveg:<br>
-								<input type="text" name="fesu_kod_be" class="mezo" placeholder="pl.: teszt szöveg"><br><br>
-								Sor:<br>
+								Plaintext:<br>
+								<input type="text" name="fesu_kod_be" class="mezo" placeholder="e.g.: test text"><br><br>
+								Rows:<br>
 								<input type="number" name="fesu_kod_kulcs" class="mezo" min="2" max="100" value="2"><br><br>
-								Kódolt szöveg:<br>
+								Ciphertext:<br>
 								<input type="text" name="fesu_kod_ki" readonly="readonly" class="mezo"><br><br>
-								<input type="button" value="Kódolás" onClick="fesu_kod()">
+								<input type="button" value="Encrypt" onClick="fesu_kod()">
 							</form>
 						</div>
 						<!-- Fésűs: Dekódolás -->
 						<div id="fesu_dekod_div" class="tab-pane fade">
 							<form name="fesu_dekod_form">
-								Kódolt szöveg:<br>
-								<input type="text" name="fesu_dekod_be" class="mezo" placeholder="pl.: TSTSÖEEZ ZVG"><br><br>
-								Sor:<br>
+								Ciphertext:<br>
+								<input type="text" name="fesu_dekod_be" class="mezo" placeholder="e.g.: TS ETETTX"><br><br>
+								Rows:<br>
 								<input type="number" name="fesu_dekod_kulcs" class="mezo" min="2" max="100" value="2"><br><br>
-								Szöveg:<br>
+								Plaintext:<br>
 								<input type="text" name="fesu_dekod_ki" readonly="readonly" class="mezo"><br><br>
-								<input type="button" value="Dekódolás" onClick="fesu_dekod()">
+								<input type="button" value="Decrypt" onClick="fesu_dekod()">
 							</form>
 						</div>
 					</div>
@@ -134,34 +134,34 @@
 			<!-- Számkódolás -->
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-2 metodus">
 				<div class="metodus-tart">
-					<h2>Számkódolás</h2>
+					<h2>Letter Number</h2>
 					<ul class="nav nav-tabs metodus-valaszto">
-						<li class="active metodus-opcio"><a data-toggle="tab" href="#szam_kod_div">Kódolás</a></li>
-						<li class="metodus-opcio"><a data-toggle="tab" href="#szam_dekod_div">Dekódolás</a></li>
+						<li class="active metodus-opcio"><a data-toggle="tab" href="#szam_kod_div">Encryption</a></li>
+						<li class="metodus-opcio"><a data-toggle="tab" href="#szam_dekod_div">Decryption</a></li>
 					</ul>
 					<div class="tab-content">
 						<!-- Számkódolás: Kódolás -->
 						<div id="szam_kod_div" class="tab-pane fade in active">
 							<form name="szam_kod_form">
-								Szöveg:<br>
-								<input type="text" name="szam_kod_be" class="mezo" placeholder="pl.: teszt szöveg"><br><br>
-								Kulcs:<br>
-								<input type="text" name="szam_kod_kulcs" class="mezo" placeholder="pl.: teszt kulcs"><br><br>
-								Kódolt szöveg:<br>
+								Plaintext:<br>
+								<input type="text" name="szam_kod_be" class="mezo" placeholder="e.g.: test text"><br><br>
+								Key:<br>
+								<input type="text" name="szam_kod_kulcs" class="mezo" placeholder="e.g.: test key"><br><br>
+								Ciphertext:<br>
 								<input type="text" name="szam_kod_ki" readonly="readonly" class="mezo"><br><br>
-								<input type="button" value="Kódolás" onClick="szam_kod()">
+								<input type="button" value="Encrypt" onClick="szam_kod()">
 							</form>
 						</div>
 						<!-- Számkódolás: Dekódolás -->
 						<div id="szam_dekod_div" class="tab-pane fade">
 							<form name="szam_dekod_form">
-								Kódolt szöveg:<br>
-								<input type="text" name="szam_dekod_be" class="mezo" placeholder="pl.: 40-10-38-52-40-30-47-27-25-24-27"><br><br>
-								Kulcs:<br>
-								<input type="text" name="szam_dekod_kulcs" class="mezo" placeholder="pl.: teszt kulcs"><br><br>
-								Szöveg:<br>
+								Ciphertext:<br>
+								<input type="text" name="szam_dekod_be" class="mezo" placeholder="e.g.: 40-10-38-40-31-10-49-40"><br><br>
+								Key:<br>
+								<input type="text" name="szam_dekod_kulcs" class="mezo" placeholder="e.g.: test key"><br><br>
+								Plaintext:<br>
 								<input type="text" name="szam_dekod_ki" readonly="readonly" class="mezo"><br><br>
-								<input type="button" value="Dekódolás" onClick="szam_dekod()">
+								<input type="button" value="Decrypt" onClick="szam_dekod()">
 							</form>
 						</div>
 					</div>
@@ -173,32 +173,32 @@
 				<div class="metodus-tart">
 					<h2>Caesar</h2>
 					<ul class="nav nav-tabs metodus-valaszto">
-						<li class="active metodus-opcio"><a data-toggle="tab" href="#caesar_kod_div">Kódolás</a></li>
-						<li class="metodus-opcio"><a data-toggle="tab" href="#caesar_dekod_div">Dekódolás</a></li>
+						<li class="active metodus-opcio"><a data-toggle="tab" href="#caesar_kod_div">Encryption</a></li>
+						<li class="metodus-opcio"><a data-toggle="tab" href="#caesar_dekod_div">Decryption</a></li>
 					</ul>
 					<div class="tab-content">
 						<!-- Caesar: Kódolás -->
 						<div id="caesar_kod_div" class="tab-pane fade in active">
 							<form name="caesar_kod_form">
-								Szöveg:<br>
-								<input type="text" name="caesar_kod_be" class="mezo" placeholder="pl.: teszt szöveg"><br><br>
-								Eltolás:<br>
+								Plaintext:<br>
+								<input type="text" name="caesar_kod_be" class="mezo" placeholder="e.g.: test text"><br><br>
+								Shift:<br>
 								<input type="number" name="caesar_kod_kulcs" class="mezo" min="1" max="25" value="1"><br><br>
-								Kódolt szöveg:<br>
+								Ciphertext:<br>
 								<input type="text" name="caesar_kod_ki" readonly="readonly" class="mezo"><br><br>
-								<input type="button" value="Kódolás" onClick="caesar_kod()">
+								<input type="button" value="Encrypt" onClick="caesar_kod()">
 							</form>
 						</div>
 						<!-- Caesar: Dekódolás -->
 						<div id="caesar_dekod_div" class="tab-pane fade">
 							<form name="caesar_dekod_form">
-								Kódolt szöveg:<br>
-								<input type="text" name="caesar_dekod_be" class="mezo" placeholder="pl.: UFTAUTAPWFH"><br><br>
-								Eltolás:<br>
+								Ciphertext:<br>
+								<input type="text" name="caesar_dekod_be" class="mezo" placeholder="e.g.: UFTUUFYU"><br><br>
+								Shift:<br>
 								<input type="number" name="caesar_dekod_kulcs" class="mezo" min="1" max="25" value="1"><br><br>
-								Szöveg:<br>
+								Plaintext:<br>
 								<input type="text" name="caesar_dekod_ki" readonly="readonly" class="mezo"><br><br>
-								<input type="button" value="Dekódolás" onClick="caesar_dekod()">
+								<input type="button" value="Decrypt" onClick="caesar_dekod()">
 							</form>
 						</div>
 					</div>
@@ -210,32 +210,32 @@
 				<div class="metodus-tart">
 					<h2>Vigenere</h2>
 					<ul class="nav nav-tabs metodus-valaszto">
-						<li class="active metodus-opcio"><a data-toggle="tab" href="#vigenere_kod_div">Kódolás</a></li>
-						<li class="metodus-opcio"><a data-toggle="tab" href="#vigenere_dekod_div">Dekódolás</a></li>
+						<li class="active metodus-opcio"><a data-toggle="tab" href="#vigenere_kod_div">Encryption</a></li>
+						<li class="metodus-opcio"><a data-toggle="tab" href="#vigenere_dekod_div">Decryption</a></li>
 					</ul>
 					<div class="tab-content">
 						<!-- Vigenere: Kódolás -->
 						<div id="vigenere_kod_div" class="tab-pane fade in active">
 							<form name="vigenere_kod_form">
-								Szöveg:<br>
-								<input type="text" name="vigenere_kod_be" class="mezo" placeholder="pl.: teszt szöveg"><br><br>
-								Kulcs:<br>
-								<input type="text" name="vigenere_kod_kulcs" class="mezo" placeholder="pl.: teszt kulcs"><br><br>
-								Kódolt szöveg:<br>
+								Plaintext<br>
+								<input type="text" name="vigenere_kod_be" class="mezo" placeholder="e.g.: test text"><br><br>
+								Key:<br>
+								<input type="text" name="vigenere_kod_kulcs" class="mezo" placeholder="e.g.: test key"><br><br>
+								Ciphertext:<br>
 								<input type="text" name="vigenere_kod_ki" readonly="readonly" class="mezo"><br><br>
-								<input type="button" value="Kódolás" onClick="vigenere_kod()">
+								<input type="button" value="Encrypt" onClick="vigenere_kod()">
 							</form>
 						</div>
 						<!-- Vigenere: Dekódolás -->
 						<div id="vigenere_dekod_div" class="tab-pane fade">
 							<form name="vigenere_dekod_form">
-								Kódolt szöveg:<br>
-								<input type="text" name="vigenere_dekod_be" class="mezo" placeholder="pl.: MIKYMCTZXWZ"><br><br>
-								Kulcs:<br>
-								<input type="text" name="vigenere_dekod_kulcs" class="mezo" placeholder="pl.: teszt kulcs"><br><br>
-								Szöveg:<br>
+								Ciphertext:<br>
+								<input type="text" name="vigenere_dekod_be" class="mezo" placeholder="e.g.: MIKMDIVM"><br><br>
+								Key:<br>
+								<input type="text" name="vigenere_dekod_kulcs" class="mezo" placeholder="e.g.: test key"><br><br>
+								Plaintext:<br>
 								<input type="text" name="vigenere_dekod_ki" readonly="readonly" class="mezo"><br><br>
-								<input type="button" value="Dekódolás" onClick="vigenere_dekod()">
+								<input type="button" value="Decrypt" onClick="vigenere_dekod()">
 							</form>
 						</div>
 					</div>
@@ -250,9 +250,9 @@
 		<div class="row">
 			<!-- Lábléc -->
 			<div class="col-xs-12 lablec">
-				Minden jog fenntartva.<br>
+				All rights reserved.<br>
 				&copy;2017<br>
-				Orsós Lívia, Király Bence, Kapitány Rudolf
+				Lívia Orsós, Bence Király, Rudolf Kapitány
 				<p class="diszkretszinu">Inspired by Duncan MacLeod the Highlander</p>
 			</div>
 		</div>
