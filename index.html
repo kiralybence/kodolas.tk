@@ -1,253 +1,115 @@
 <!DOCTYPE html>
-
-<!-- Minden jog fenntartva. ©2017 Király Bence, Kapitány Rudolf -->
-
-<html>
-
+ 
+<!-- Minden jog fenntartva. ©2017 Orsós Lívia, Király Bence, Kapitány Rudolf -->
+ 
+<html lang="hu"><!--magyar lokalizáció-->
+ 
 <head>
-	<meta charset="utf-8">
-	<link rel="icon" type="image/x-icon" href="img/favicon.png" />
-	<title>Kódolás</title>
-	<script language="javascript" type="text/javascript">
-		function szamkodolaskodolas(){
-			var betuk = ['0','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-			var szovegnyers;
-			var szovegszamkodolt = [];
-			var szovegkodolt = [];
-			var kulcsnyers;
-			var kulcsszamkodolt = [];
-			
-			szovegnyers = document.szamkodolas.szamkodolasszoveg.value;
-			kulcsnyers = document.szamkodolas.szamkodolaskulcs.value;
-			
-			for(i=0;i<szovegnyers.length;i++){
-				for(y=1;y<27;y++){
-					if(szovegnyers.charAt(i)==betuk[y]){
-						szovegszamkodolt[i]=y;
-					}
-				}
-			}
-			
-			y=0;
-			
-			for(i=0;i<szovegszamkodolt.length;i++){
-				if(y==kulcsnyers.length){
-					y=0
-				}
-				kulcsszamkodolt[i]=kulcsnyers.charAt(y);
-				y++;
-				for(z=1;z<27;z++){
-					if(kulcsszamkodolt[i]==betuk[z]){
-						kulcsszamkodolt[i]=z;
-					}
-				}
-				szovegkodolt[i]=szovegszamkodolt[i]+kulcsszamkodolt[i];
-			}
-			
-			document.szamkodolas.szamkodolaseredmeny.value = szovegkodolt;
-		}
-		
-		function szamkodolasdekodolas(){
-			var betuk = ['0','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-			var szovegnyers;
-			var szovegkodolt;
-			var kulcsnyers;
-			var kulcsszamkodolt;
-			
-			szovegkodolt = document.szamkodolas.szamkodolasszoveg.value;
-			kulcsnyers = document.szamkodolas.szamkodolaskulcs.value;
-			
-			for(z=1;z<27;z++){
-				if(kulcsnyers==betuk[z]){
-					kulcsszamkodolt=z;
-				}
-			}
-			
-			szovegszamkodolt=szovegkodolt-kulcsszamkodolt;
-			szovegnyers=betuk[szovegszamkodolt];
-			
-			document.szamkodolas.szamkodolaseredmeny.value = szovegnyers;
-		}
-		
-		function caesarkodolas(){
-			var betuk = ['0','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-			var szovegnyers;
-			var szovegszamkodolt = [];
-			var szovegkodolt = [];
-			var eltolas;
-			
-			szovegnyers = document.caesar.caesarszoveg.value;
-			eltolas = parseInt(document.caesar.caesarkulcs.value);
-			
-			for(i=0;i<szovegnyers.length;i++){
-				for(y=1;y<27;y++){
-					if(szovegnyers.charAt(i)==betuk[y]){
-						szovegszamkodolt[i]=y;
-					}
-				}
-				szovegkodolt[i]=betuk[szovegszamkodolt[i]+eltolas];
-			}
-			
-			document.caesar.caesareredmeny.value = szovegkodolt;
-		}
-		
-		function caesardekodolas(){
-			var betuk = ['0','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-			var szovegnyers = [];
-			var szovegszamkodolt = [];
-			var szovegkodolt = [];
-			var eltolas;
-			
-			szovegkodolt = document.caesar.caesarszoveg.value;
-			eltolas = parseInt(document.caesar.caesarkulcs.value);
-			
-			for(i=0;i<szovegkodolt.length;i++){
-				for(y=1;y<27;y++){
-					if(szovegkodolt.charAt(i)==betuk[y]){
-						szovegszamkodolt[i]=y;
-					}
-				}
-				if(szovegszamkodolt[i]-eltolas<1){
-					szovegnyers[i]=betuk[szovegszamkodolt[i]-eltolas+26];
-				}
-				if(szovegszamkodolt[i]-eltolas>0){
-					szovegnyers[i]=betuk[szovegszamkodolt[i]-eltolas];
-				}
-			}
-			
-			document.caesar.caesareredmeny.value = szovegnyers;
-		}
-		
-		function vigenerekodolas(){
-			var betuk = ['0','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-			var szovegnyers;
-			var szovegszamkodolt = [];
-			var szovegkodolt = [];
-			var kulcsnyers;
-			var kulcsszamkodolt = [];
-			
-			szovegnyers = document.vigenere.vigenereszoveg.value;
-			kulcsnyers = document.vigenere.vigenerekulcs.value;
-			
-			for(i=0;i<szovegnyers.length;i++){
-				for(y=1;y<27;y++){
-					if(szovegnyers.charAt(i)==betuk[y]){
-						szovegszamkodolt[i]=y;
-					}
-				}
-			}
-			
-			y=0;
-			
-			for(i=0;i<szovegszamkodolt.length;i++){
-				if(y==kulcsnyers.length){
-					y=0
-				}
-				kulcsszamkodolt[i]=kulcsnyers.charAt(y);
-				y++;
-				for(z=1;z<27;z++){
-					if(kulcsszamkodolt[i]==betuk[z]){
-						kulcsszamkodolt[i]=z;
-					}
-				}
-				szovegkodolt[i]=betuk[szovegszamkodolt[i]+kulcsszamkodolt[i]-1];
-			}
-			
-			document.vigenere.vigenereeredmeny.value = szovegkodolt;
-		}
-		
-		function vigeneredekodolas(){
-			var betuk = ['0','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-			var szovegnyers;
-			var szovegszamkodolt = [];
-			var szovegkodolt = [];
-			var kulcsnyers;
-			var kulcsszamkodolt = [];
-			
-			szovegkodolt = document.vigenere.vigenereszoveg.value;
-			kulcsnyers = document.vigenere.vigenerekulcs.value;
-			
-			for(i=0;i<szovegkodolt.length;i++){
-				for(y=1;y<27;y++){
-					if(szovegkodolt.charAt(i)==betuk[y]){
-						szovegszamkodolt[i]=y;
-					}
-				}
-			}
-			
-			y=0;
-			
-			for(i=0;i<szovegszamkodolt.length;i++){
-				if(y==kulcsnyers.length){
-					y=0
-				}
-				kulcsszamkodolt[i]=kulcsnyers.charAt(y);
-				y++;
-				for(z=1;z<27;z++){
-					if(kulcsszamkodolt[i]==betuk[z]){
-						kulcsszamkodolt[i]=z;
-					}
-				}
-				if(szovegszamkodolt[i]-kulcsszamkodolt[i]+1<1){
-					szovegszamkodolt[i]=betuk[szovegszamkodolt[i]-kulcsszamkodolt[i]+27];
-				}
-				if(szovegszamkodolt[i]-kulcsszamkodolt[i]+1>0){
-					szovegszamkodolt[i]=betuk[szovegszamkodolt[i]-kulcsszamkodolt[i]+1];
-				}
-			}
-			
-			document.vigenere.vigenereeredmeny.value = szovegszamkodolt;
-		}
-	</script>
+    <meta charset="utf-8"><!--ami nem utf-8, az  nem is jó-->
+    <link rel="icon" type="image/x-icon" href="img/favicon.png"><!--az év faviconja-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"><!--mobilok miatt-->
+    <title>Kódolás</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css"><!--azért a min, mert gyorsabban letölt/betölt-->
+	<link rel="stylesheet" href="css/font-awesome.min.css"><!--jó kis ikonkészlet-->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <script language="javascript" type="text/javascript" src="js/polubiosz.js"></script>
+    <script language="javascript" type="text/javascript" src="js/fesu.js"></script>
+    <script language="javascript" type="text/javascript" src="js/szamkod.js"></script>
+    <script language="javascript" type="text/javascript" src="js/caesar.js"></script>
+    <script language="javascript" type="text/javascript" src="js/vigenere.js"></script>
 </head>
-
-<body align="center">
-	<a style="font-family: Arial;">
-		<div style="display: inline-block; background: lightgrey; padding: 20px; padding-top: 0px; border: 1px solid black; margin: 15px; vertical-align: top;">
-			<h3>Számkódolás</h3>
-			<form name="szamkodolas">
-				Szöveg:<br>
-				<input type="text" name="szamkodolasszoveg"><br><br>
-				Kulcs:<br>
-				<input type="text" name="szamkodolaskulcs"><br><br>
-				Eredmény:<br>
-				<input type="text" name="szamkodolaseredmeny" readonly="readonly"><br><br>
-				
-				<input type="button" value="Kódolás" onClick="szamkodolaskodolas()">
-				<input type="button" value="Dekódolás" onClick="szamkodolasdekodolas()">
-				<p style="font-size: 8pt; font-family: Arial;">(szóközök és ékezetek nélkül)</p>
-				<p style="font-size: 8pt; font-family: Arial;"><strong>Dekódolás:</strong> A "szöveg" mezőbe<br>egyszerre csak 1 számot írj be<br>(több számjegyű is lehet),<br>a "kulcs" mezőbe pedig a<br>hozzá tartozó kulcs betűjét.</p>
-			</form>
+ 
+<body>
+    <div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-1 visible-lg"></div><!--helykitöltésnek-->
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-2 metodus">
+				<div class="metodus-tart">
+					<h3>Polübiosz</h3>
+					<form name="pk">
+						Szöveg:<br>
+						<input type="text" name="pszoveg" class="mezo"><br><br>
+						Eredmény:<br>
+						<input type="text" name="peredmeny" readonly="readonly" class="mezo"><br><br>
+					   
+						<input type="button" value="Kódolás" onClick="pkod()">
+						<input type="button" value="Dekódolás" onClick="pde()">
+					</form>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-2 metodus">
+				<div class="metodus-tart">
+					<h3>Fésűs módszer</h3>
+					<form name="fk">
+						Szöveg:<br>
+						<input type="text" name="fszoveg" class="mezo"><br><br>
+						Sor:<br>
+						<input type="number" name="fsor" class="mezo" min="2" max="100" value="2"><br><br>
+						Eredmény:<br>
+						<input type="text" name="feredmeny" readonly="readonly" class="mezo"><br><br>
+					   
+						<input type="button" value="Kódolás" onClick="fkod()">
+						<input type="button" value="Dekódolás" onClick="fde()">
+					</form>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-2 metodus">
+				<div class="metodus-tart">
+					<h3>Számkódolás</h3>
+					<form name="szk">
+						Szöveg:<br>
+						<input type="text" name="szkszoveg" class="mezo"><br><br>
+						Kulcs:<br>
+						<input type="text" name="szkkulcs" class="mezo"><br><br>
+						Eredmény:<br>
+						<input type="text" name="szkeredmeny" readonly="readonly" class="mezo"><br><br>
+					   
+						<input type="button" value="Kódolás" onClick="szkkod()">
+						<input type="button" value="Dekódolás" onClick="szkde()">
+						<p style="font-size: 8pt; font-family: Arial;">(szóközök és ékezetek nélkül)</p>
+					</form>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-2 metodus">
+				<div class="metodus-tart">
+					<h3>Caesar</h3>
+					<form name="csr">
+						Szöveg:<br>
+						<input type="text" name="csrszoveg" class="mezo"><br><br>
+						Eltolás:<br>
+						<input type="number" name="csrkulcs" class="mezo" min="1" max="25" value="1"><br><br>
+						Eredmény:<br>
+						<input type="text" name="csreredmeny" readonly="readonly" class="mezo"><br><br>
+						<input type="button" value="Kódolás" onClick="csrkod()">
+						<input type="button" value="Dekódolás" onClick="csrde()">
+						<p style="font-size: 8pt; font-family: Arial;">(szóközök és ékezetek nélkül)</p>
+					</form>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-2 metodus">
+				<div class="metodus-tart">
+					<h3>Vigenere</h3>
+					<form name="vgnr">
+						Szöveg:<br>
+						<input type="text" name="vgnrszoveg" class="mezo"><br><br>
+						Kulcs:<br>
+						<input type="text" name="vgnrkulcs" class="mezo"><br><br>
+						Eredmény:<br>
+						<input type="text" name="vgnreredmeny" readonly="readonly" class="mezo"><br><br>
+						<input type="button" value="Kódolás" onClick="vgnrkod()">
+						<input type="button" value="Dekódolás" onClick="vgnrde()">
+						<p style="font-size: 8pt; font-family: Arial;">(szóközök és ékezetek nélkül)</p>
+					</form>
+				</div>
+			</div>
+			<div class="col-lg-1 visible-lg"></div><!--helykitöltésnek-->
 		</div>
-		<div style="display: inline-block; background: lightgrey; padding: 20px; padding-top: 0px; border: 1px solid black; margin: 15px; vertical-align: top;">
-			<h3>Caesar</h3>
-			<form name="caesar">
-				Szöveg:<br>
-				<input type="text" name="caesarszoveg"><br><br>
-				Eltolás:<br>
-				<input type="number" name="caesarkulcs"><br><br>
-				Eredmény:<br>
-				<input type="text" name="caesareredmeny" readonly="readonly"><br><br>
-				<input type="button" value="Kódolás" onClick="caesarkodolas()">
-				<input type="button" value="Dekódolás" onClick="caesardekodolas()">
-				<p style="font-size: 8pt; font-family: Arial;">(szóközök és ékezetek nélkül)</p>
-			</form>
+		<div class="row">
+			<div class="col-xs-12 lablec">
+				Minden jog fenntartva.<br>&copy; 2017<br>Orsós Lívia, Király Bence, Kapitány Rudolf<br><p class="diszkretszinu">Inspired by Sarlós Tamás Zsolt</p>
+			</div>
 		</div>
-		<div style="display: inline-block; background: lightgrey; padding: 20px; padding-top: 0px; border: 1px solid black; margin: 15px; vertical-align: top;">
-			<h3>Vigenere</h3>
-			<form name="vigenere">
-				Szöveg:<br>
-				<input type="text" name="vigenereszoveg"><br><br>
-				Kulcs:<br>
-				<input type="text" name="vigenerekulcs"><br><br>
-				Eredmény:<br>
-				<input type="text" name="vigenereeredmeny" readonly="readonly"><br><br>
-				<input type="button" value="Kódolás" onClick="vigenerekodolas()">
-				<input type="button" value="Dekódolás" onClick="vigeneredekodolas()">
-				<p style="font-size: 8pt; font-family: Arial;">(szóközök és ékezetek nélkül)</p>
-			</form>
-		</div>
-	</a>
+    </div>
 </body>
-
+ 
 </html>

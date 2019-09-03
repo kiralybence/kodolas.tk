@@ -1,0 +1,38 @@
+@charset utf-8;
+
+.metodus-tart{
+	width: 100%;
+	height: 100%;
+	margin: 10px;
+	background-color: lightgrey;
+	border: 1px solid black;
+	padding: 5px;
+	text-align: center;
+	overflow: hidden;
+}
+
+.mezo{
+	width: 100%;
+}
+
+.lablec{
+	text-align: center;
+	font-size: x-small;
+}
+
+.diszkretszinu{
+	color: lightgrey;
+}
+/*Alábbi kell, hogy a colok egyforma magasak legyenek, ez az egyetlen normális reszponzív megoldás*/
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+  flex-wrap: wrap;
+}
+.row > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+/*col egyforma magasság vége*/			
