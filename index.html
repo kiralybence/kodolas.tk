@@ -2,14 +2,14 @@
  
 <!-- Minden jog fenntartva. ©2017 Orsós Lívia, Király Bence, Kapitány Rudolf -->
  
-<html lang="hu"><!--magyar lokalizáció-->
+<html lang="hu"> <!-- magyar lokalizáció -->
  
 <head>
-    <meta charset="utf-8"><!--ami nem utf-8, az  nem is jó-->
-    <link rel="icon" type="image/x-icon" href="img/favicon.png"><!--az év faviconja-->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"><!--mobilok miatt-->
+    <meta charset="utf-8"> <!-- ami nem utf-8, az nem is jó -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- mobilok miatt -->
     <title>Kódolás</title>
-	<link rel="stylesheet" href="css/bootstrap.min.css"><!--azért a min, mert gyorsabban letölt/betölt-->
+	<link rel="icon" type="image/x-icon" href="img/favicon.png"> <!-- az év faviconja -->
+	<link rel="stylesheet" href="css/bootstrap.min.css"> <!-- azért a min, mert gyorsabban letölt/betölt -->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
     <script type="text/javascript" src="js/polubiosz.js"></script>
     <script type="text/javascript" src="js/fesu.js"></script>
@@ -17,49 +17,60 @@
     <script type="text/javascript" src="js/caesar.js"></script>
     <script type="text/javascript" src="js/vigenere.js"></script>
     <script type="text/javascript" src="js/nightmode.js"></script>
-	<script src="js/jquery.min.js"></script><!--Kell a dynamic pillshez-->
-	<script src="js/bootstrap.min.js"></script><!--Kell a dynamic pillshez-->
+	<script src="js/jquery.min.js"></script> <!-- Kell a dynamic pillshez -->
+	<script src="js/bootstrap.min.js"></script> <!-- Kell a dynamic pillshez -->
 </head>
  
 <body>
     <div class="container-fluid">
+		<!-- Felső sor -->
 		<div class="row">
+			<!-- Fejléc -->
 			<div class="col-xs-12 cim">
 				<h1>Kódolás.tk</h1>
 				<div><input type="checkbox" id="kapcsolo" onclick="nightmode()">&nbsp;Night Mode&nbsp;<span id="allapot">OFF</span></div>
 			</div>
 		</div>
+		
+		<!-- Középső sor -->
 		<div class="row">
-			<div class="col-lg-1 visible-lg"></div><!--helykitöltésnek-->
+			<!-- Helykitöltés -->
+			<div class="col-lg-1 visible-lg"></div>
+			
+			<!-- Polübiosz -->
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-2 metodus">
 				<div class="metodus-tart">
 					<h3>Polübiosz</h3>
 					<ul class="nav nav-tabs metodus-valaszto">
-						<li class="active metodus-opcio"><a data-toggle="tab" href="#pkod">Kódolás</a></li>
-						<li class="metodus-opcio"><a data-toggle="tab" href="#pdkod">Dekódolás</a></li>
+						<li class="active metodus-opcio"><a data-toggle="tab" href="#polubiosz_kod_div">Kódolás</a></li>
+						<li class="metodus-opcio"><a data-toggle="tab" href="#polubiosz_dekod_div">Dekódolás</a></li>
 					</ul>
 					<div class="tab-content">
-						<div id="pkod" class="tab-pane fade in active">
-							<form name="pk">
+						<!-- Polübiosz: Kódolás -->
+						<div id="polubiosz_kod_div" class="tab-pane fade in active">
+							<form name="polubiosz_kod_form">
 								Szöveg:<br>
-								<input type="text" name="psz" class="mezo"><br><br>
+								<input type="text" name="polubiosz_kod_be" class="mezo"><br><br>
 								Kódolt szöveg:<br>
-								<input type="text" name="pk" readonly="readonly" class="mezo"><br><br>
-								<input type="button" value="Kódolás" onClick="pkd()">
+								<input type="text" name="polubiosz_kod_ki" readonly="readonly" class="mezo"><br><br>
+								<input type="button" value="Kódolás" onClick="polubiosz_kod()">
 							</form>
 						</div>
-						<div id="pdkod" class="tab-pane fade">
-							<form name="pdk">
+						<!-- Polübiosz: Dekódolás -->
+						<div id="polubiosz_dekod_div" class="tab-pane fade">
+							<form name="polubiosz_dekod_form">
 								Kódolt szöveg:<br>
-								<input type="text" name="pdksz" class="mezo"><br><br>
+								<input type="text" name="polubiosz_dekod_be" class="mezo"><br><br>
 								Szöveg:<br>
-								<input type="text" name="pdke" readonly="readonly" class="mezo"><br><br>
-								<input type="button" value="Dekódolás" onClick="pde()">
+								<input type="text" name="polubiosz_dekod_ki" readonly="readonly" class="mezo"><br><br>
+								<input type="button" value="Dekódolás" onClick="polubiosz_dekod()">
 							</form>
 						</div>
 					</div>
 				</div>
 			</div>
+			
+			<!-- Fésűs -->
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-2 metodus">
 				<div class="metodus-tart">
 					<h3>Fésűs</h3>
@@ -68,6 +79,7 @@
 						<li class="metodus-opcio"><a data-toggle="tab" href="#fdkod">Dekódolás</a></li>
 					</ul>
 					<div class="tab-content">
+						<!-- Fésűs: Kódolás -->
 						<div id="fkod" class="tab-pane fade in active">		
 							<form name="fk">
 								Szöveg:<br>
@@ -79,6 +91,7 @@
 								<input type="button" value="Kódolás" onClick="fkod()">
 							</form>
 						</div>
+						<!-- Fésűs: Dekódolás -->
 						<div id="fdkod" class="tab-pane fade">		
 							<form name="fdk">
 								Kódolt szöveg:<br>
@@ -93,110 +106,125 @@
 					</div>		
 				</div>
 			</div>
+			
+			<!-- Számkódolás -->
 			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-2 metodus">
 				<div class="metodus-tart">
 					<h3>Számkódolás</h3>
 					<ul class="nav nav-tabs metodus-valaszto">
-						<li class="active metodus-opcio"><a data-toggle="tab" href="#szkod">Kódolás</a></li>
-						<li class="metodus-opcio"><a data-toggle="tab" href="#szdkod">Dekódolás</a></li>
+						<li class="active metodus-opcio"><a data-toggle="tab" href="#szam_kod_div">Kódolás</a></li>
+						<li class="metodus-opcio"><a data-toggle="tab" href="#szam_dekod_div">Dekódolás</a></li>
 					</ul>
 					<div class="tab-content">
-						<div id="szkod" class="tab-pane fade in active">	
-							<form name="szk">
+						<!-- Számkódolás: Kódolás -->
+						<div id="szam_kod_div" class="tab-pane fade in active">	
+							<form name="szam_kod_form">
 								Szöveg:<br>
-								<input type="text" name="szkszoveg" class="mezo"><br><br>
+								<input type="text" name="szam_kod_be" class="mezo"><br><br>
 								Kulcs:<br>
-								<input type="text" name="szkkulcs" class="mezo"><br><br>
+								<input type="text" name="szam_kod_kulcs" class="mezo"><br><br>
 								Kódolt szöveg:<br>
-								<input type="text" name="szkeredmeny" readonly="readonly" class="mezo"><br><br>
-							   
-								<input type="button" value="Kódolás" onClick="szkkod()">
+								<input type="text" name="szam_kod_ki" readonly="readonly" class="mezo"><br><br>
+								<input type="button" value="Kódolás" onClick="szam_kod()">
 							</form>
 						</div>
-						<div id="szdkod" class="tab-pane fade">	
-							<form name="szk">
+						<!-- Számkódolás: Dekódolás -->
+						<div id="szam_dekod_div" class="tab-pane fade">	
+							<form name="szam_dekod_form">
 								Kódolt szöveg:<br>
-								<input type="text" name="szkszoveg" class="mezo"><br><br>
+								<input type="text" name="szam_dekod_be" class="mezo"><br><br>
 								Kulcs:<br>
-								<input type="text" name="szkkulcs" class="mezo"><br><br>
+								<input type="text" name="szam_dekod_kulcs" class="mezo"><br><br>
 								Szöveg:<br>
-								<input type="text" name="szkeredmeny" readonly="readonly" class="mezo"><br><br>
-							   
-								<input type="button" value="Dekódolás" onClick="szkde()">
+								<input type="text" name="szam_dekod_ki" readonly="readonly" class="mezo"><br><br>
+								<input type="button" value="Dekódolás" onClick="szam_dekod()">
 							</form>
 						</div>
 					</div>
 				</div>
 			</div>
+			
+			<!-- Caesar -->
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-2 metodus">
 				<div class="metodus-tart">
 					<h3>Caesar</h3>
 					<ul class="nav nav-tabs metodus-valaszto">
-						<li class="active metodus-opcio"><a data-toggle="tab" href="#ckod">Kódolás</a></li>
-						<li class="metodus-opcio"><a data-toggle="tab" href="#cdkod">Dekódolás</a></li>
+						<li class="active metodus-opcio"><a data-toggle="tab" href="#caesar_kod_div">Kódolás</a></li>
+						<li class="metodus-opcio"><a data-toggle="tab" href="#caesar_dekod_div">Dekódolás</a></li>
 					</ul>
 					<div class="tab-content">
-						<div id="ckod" class="tab-pane fade in active">	
-							<form name="csr">
+						<!-- Caesar: Kódolás -->
+						<div id="caesar_kod_div" class="tab-pane fade in active">	
+							<form name="caesar_kod_form">
 								Szöveg:<br>
-								<input type="text" name="csrszoveg" class="mezo"><br><br>
+								<input type="text" name="caesar_kod_be" class="mezo"><br><br>
 								Eltolás:<br>
-								<input type="number" name="csrkulcs" class="mezo" min="1" max="25" value="1"><br><br>
+								<input type="number" name="caesar_kod_kulcs" class="mezo" min="1" max="25" value="1"><br><br>
 								Kódolt szöveg:<br>
-								<input type="text" name="csreredmeny" readonly="readonly" class="mezo"><br><br>
-								<input type="button" value="Kódolás" onClick="csrkod()">
+								<input type="text" name="caesar_kod_ki" readonly="readonly" class="mezo"><br><br>
+								<input type="button" value="Kódolás" onClick="caesar_kod()">
 							</form>
 						</div>
-						<div id="cdkod" class="tab-pane fade">	
-							<form name="csr">
+						<!-- Caesar: Dekódolás -->
+						<div id="caesar_dekod_div" class="tab-pane fade">	
+							<form name="caesar_dekod_form">
 								Kódolt szöveg:<br>
-								<input type="text" name="csrszoveg" class="mezo"><br><br>
+								<input type="text" name="caesar_dekod_be" class="mezo"><br><br>
 								Eltolás:<br>
-								<input type="number" name="csrkulcs" class="mezo" min="1" max="25" value="1"><br><br>
+								<input type="number" name="caesar_dekod_kulcs" class="mezo" min="1" max="25" value="1"><br><br>
 								Szöveg:<br>
-								<input type="text" name="csreredmeny" readonly="readonly" class="mezo"><br><br>
-								<input type="button" value="Dekódolás" onClick="csrde()">
+								<input type="text" name="caesar_dekod_ki" readonly="readonly" class="mezo"><br><br>
+								<input type="button" value="Dekódolás" onClick="caesar_dekod()">
 							</form>
 						</div>
 					</div>	
 				</div>
 			</div>
+			
+			<!-- Vigenere -->
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-2 metodus">
 				<div class="metodus-tart">
 					<h3>Vigenere</h3>
 					<ul class="nav nav-tabs metodus-valaszto">
-						<li class="active metodus-opcio"><a data-toggle="tab" href="#vkod">Kódolás</a></li>
-						<li class="metodus-opcio"><a data-toggle="tab" href="#vdkod">Dekódolás</a></li>
+						<li class="active metodus-opcio"><a data-toggle="tab" href="#vigenere_kod_div">Kódolás</a></li>
+						<li class="metodus-opcio"><a data-toggle="tab" href="#vigenere_dekod_div">Dekódolás</a></li>
 					</ul>
 					<div class="tab-content">
-						<div id="vkod" class="tab-pane fade in active">	
-							<form name="vgnr">
+						<!-- Vigenere: Kódolás -->
+						<div id="vigenere_kod_div" class="tab-pane fade in active">	
+							<form name="vigenere_kod_form">
 								Szöveg:<br>
-								<input type="text" name="vgnrszoveg" class="mezo"><br><br>
+								<input type="text" name="vigenere_kod_be" class="mezo"><br><br>
 								Kulcs:<br>
-								<input type="text" name="vgnrkulcs" class="mezo"><br><br>
+								<input type="text" name="vigenere_kod_kulcs" class="mezo"><br><br>
 								Kódolt szöveg:<br>
-								<input type="text" name="vgnreredmeny" readonly="readonly" class="mezo"><br><br>
-								<input type="button" value="Kódolás" onClick="vgnrkod()">
+								<input type="text" name="vigenere_kod_ki" readonly="readonly" class="mezo"><br><br>
+								<input type="button" value="Kódolás" onClick="vigenere_kod()">
 							</form>
 						</div>
-						<div id="vdkod" class="tab-pane fade">	
-							<form name="vgnr">
+						<!-- Vigenere: Dekódolás -->
+						<div id="vigenere_dekod_div" class="tab-pane fade">	
+							<form name="vigenere_dekod_form">
 								Kódolt szöveg:<br>
-								<input type="text" name="vgnrszoveg" class="mezo"><br><br>
+								<input type="text" name="vigenere_dekod_be" class="mezo"><br><br>
 								Kulcs:<br>
-								<input type="text" name="vgnrkulcs" class="mezo"><br><br>
+								<input type="text" name="vigenere_dekod_kulcs" class="mezo"><br><br>
 								Szöveg:<br>
-								<input type="text" name="vgnreredmeny" readonly="readonly" class="mezo"><br><br>
-								<input type="button" value="Dekódolás" onClick="vgnrde()">
+								<input type="text" name="vigenere_dekod_ki" readonly="readonly" class="mezo"><br><br>
+								<input type="button" value="Dekódolás" onClick="vigenere_dekod()">
 							</form>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-1 visible-lg"></div><!--helykitöltésnek-->
+			
+			<!-- Helykitöltés -->
+			<div class="col-lg-1 visible-lg"></div>
 		</div>
+		
+		<!-- Alsó sor -->
 		<div class="row">
+			<!-- Lábléc -->
 			<div class="col-xs-12 lablec">
 				Minden jog fenntartva.<br>&copy; 2017<br>Orsós Lívia, Király Bence, Kapitány Rudolf<br><p class="diszkretszinu">Inspired by Duncan MacLeod the Highlander</p>
 			</div>
